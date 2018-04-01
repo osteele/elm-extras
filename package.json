@@ -1,0 +1,27 @@
+{
+  "name": "banyan",
+  "version": "0.1.0",
+  "description": "Oliver's personal Elm extras",
+  "homepage": "https://github.com/osteele/elm-extras",
+  "author": "Oliver Steele <steele@osteele.com>",
+  "repository": "github:osteele/elm-extras",
+  "license": "MIT",
+  "scripts": {
+    "analyse": "elm analyse",
+    "build": "poi build",
+    "docs": "elm make --docs=documentation.json",
+    "format": "elm format --yes src",
+    "install": "elm package install -y && cd tests && elm package install -y",
+    "lint": "elm-format --validate src",
+    "reinstall":
+      "rimraf node_modules elm-stuff tests/elm-stuff && yarn install",
+    "test:watch": "elm test --watch",
+    "test": "elm test"
+  },
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-analyse": "^0.13.3",
+    "elm-format": "^0.6.1-alpha",
+    "elm-test": "^0.18.12"
+  }
+}
