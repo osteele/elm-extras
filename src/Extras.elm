@@ -4,12 +4,12 @@ module Extras
         , firstMatch
         , flatMapS
         , humanize
+        , inits
         , ifJust
         , mapS
         , mapValues
         , maybeToDefault
         , pluralize
-        , prefixes
         , quantify
         , remove
         , takeFileName
@@ -53,7 +53,7 @@ projects.
 
 # Strings
 
-@docs dropPrefix, prefixes
+@docs dropPrefix, inits
 
 -}
 
@@ -330,14 +330,14 @@ dropPrefix prefix s =
 
 {-| Get the non-null prefixes of a list.
 
-    prefixes "abc" == ["a", "ab", "abc"]
+    inits ["a", "b", "c"] == [[], ["a"], ["a", "b"], ["a", "b", "c"]]
 
 -}
-prefixes : List a -> List (List a)
-prefixes xs =
+inits : List a -> List (List a)
+inits xs =
     case xs of
         h :: t ->
-            [ h ] :: List.map ((::) h) (prefixes t)
+            [] :: List.map ((::) h) (inits t)
 
         [] ->
-            []
+            [ [] ]

@@ -73,11 +73,12 @@ stringTests =
                 dropPrefix "/" ""
                     |> Expect.equal Nothing
         ]
-    , test "prefixes" <|
+    , test "inits" <|
         \_ ->
-            prefixes [ "a", "b", "c" ]
+            inits [ "a", "b", "c" ]
                 |> Expect.equal
-                    [ [ "a" ]
+                    [ []
+                    , [ "a" ]
                     , [ "a", "b" ]
                     , [ "a", "b", "c" ]
                     ]
